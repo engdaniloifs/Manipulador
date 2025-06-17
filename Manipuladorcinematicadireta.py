@@ -1,3 +1,5 @@
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -44,23 +46,25 @@ ponto_final = Joint(0)
 joint0.x = 0
 joint0.y = 0
 
-
+theta1 = -45
+theta2 = -45 
 
 # Calcular posições
-joint1.calc_pos(joint0, 0)
-ponto_final.calc_pos(joint1,80)
+joint1.calc_pos(joint0, theta1)
+ponto_final.calc_pos(joint1,theta2)
 
 xi, yi, xif, yif, xs, ys, xsf, ysf = garra(ponto_final)
 
+plt.plot(1,1)
 # Plot
-plt.figure()
-plt.plot([joint0.x, joint1.x, ponto_final.x], [joint0.y, joint1.y, ponto_final.y], marker='o')
-plt.plot([ponto_final.x, xi, xif], [ponto_final.y, yi, yif], marker='o')
-plt.plot([ponto_final.x, xs, xsf], [ponto_final.y, ys, ysf], marker='o')
-plt.xlim(-2, 2)
-plt.ylim(-2, 2)
-plt.grid(True)
-plt.title("Manipulador Planar")
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.show()
+#plt.figure()
+#plt.plot([joint0.x, joint1.x, ponto_final.x], [joint0.y, joint1.y, ponto_final.y], marker='o')
+#plt.plot([ponto_final.x, xi, xif], [ponto_final.y, yi, yif])
+#plt.plot([ponto_final.x, xs, xsf], [ponto_final.y, ys, ysf])
+#plt.xlim(-2, 2)
+#plt.ylim(-2, 2)
+#plt.grid(True)
+#plt.title("Manipulador Planar")
+#plt.xlabel("X")
+#plt.ylabel("Y")
+#plt.show()

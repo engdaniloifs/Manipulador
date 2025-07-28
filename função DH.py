@@ -10,18 +10,22 @@ def DH(a, alpha, d, theta):
     
     return An
 
-x_e = 1
-y_e = -1
+#x_e = 1
+#y_e = -1
 
 elo1 = 1
 elo2 = 1
 
 
-D = (x_e**2 + y_e**2 - elo1**2 -elo2**2)/(2*elo1*elo2)
+#D = (x_e**2 + y_e**2 - elo1**2 -elo2**2)/(2*elo1*elo2)
 
-theta2 = np.arctan2(np.sqrt(1-D**2),D )
+#theta2 = np.arctan2(np.sqrt(1-D**2),D )
 
-theta1 = np.arctan2(y_e, x_e) - np.arctan2( elo2*np.sin(theta2), elo1 + elo2*np.cos(theta2))
+#theta1 = np.arctan2(y_e, x_e) - np.arctan2( elo2*np.sin(theta2), elo1 + elo2*np.cos(theta2))
+
+
+theta1 = np.deg2rad(45)
+theta2 = np.deg2rad(45)
 
 a1 = elo1
 alpha1 = 0

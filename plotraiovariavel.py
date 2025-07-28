@@ -2,6 +2,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
 
 class Joint:
     def __init__(self, link):
@@ -41,18 +42,19 @@ def garra(ponto_final):
 
 
 # Criar juntas
-elo1 = 1
-elo2 = 1
+elo1 = 2
+elo2 = 2
 
-n_pontos = 180
+n_pontos = 50
+
 passo_angulo = (2*np.pi)/n_pontos
 raio = 1.5
 path = []
 
 
 for i in range (n_pontos):
-    x = raio * np.cos(passo_angulo * i)
-    y = raio * np.sin(passo_angulo * i)
+    x = raio * np.cos(passo_angulo * i)+1
+    y = raio * np.sin(passo_angulo * i)+1
     path.append((x, y))  
 
     
@@ -99,6 +101,8 @@ for i in range(n_pontos):
     plt.plot([joint0.x, joint1.x, ponto_final.x], [joint0.y, joint1.y, ponto_final.y],marker='o')
     plt.plot([ponto_final.x, xi, xif], [ponto_final.y, yi, yif], color = 'blue')
     plt.plot([ponto_final.x, xs, xsf], [ponto_final.y, ys, ysf],color = 'blue')
+    circle = Circle((1, 1),raio,fill = False, color='green',linestyle = ':')
+    plt.gca().add_patch(circle)
     
     plt.axis('equal')
     plt.xlim(-elo1 -elo2 - 3, elo1 + elo2 + 3)
